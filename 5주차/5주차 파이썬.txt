@@ -1,0 +1,65 @@
+***상하좌우 (파이썬)***
+
+n = int(input())
+plan = list(map(int, input().split()))
+
+#맵 만들기
+map = []
+for i in range(1, n + 1):
+    for j in range(1, n + 1):
+        map.append(i, j)
+
+#이동 조건 만들기
+walk = {'R' : (0, 1), 'L' : (0, -1), 'U' : (-1, 0), 'D' : (1, 0)}
+
+# 이동
+x = y = 1
+for action in plan:
+    dx, dy = walk[action]
+    if [x+dx, y+dy] in map:
+        x = x+dx
+        y = y+dy
+print(x, y)
+
+***왕실의 나이트 (파이썬)***
+n = input()
+row = int(n[1])
+column = ord(n[0]) - ord('a') + 1
+result = 0
+steps = [(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)]
+
+for i in steps:
+    c = column + i[0]
+    r = row + i[1]
+
+    if r < 1 or c < 1 or r > 8 or c > 8:
+        continue
+
+    result += 1
+
+print(result)
+
+***시각 (파이썬)***
+h = int(input())
+answer = 0
+
+for i in range(h+1):
+    for j in range(60):
+        for z in range(60):
+            if '3' in str(i) + str(j) + str(z):
+                answer += 1
+
+print(answer)
+
+***문자열 재정렬 (파이썬)***
+S = input()
+
+alpha = [ x for x in S if x.isalpha()]
+num = sum([int(x) for x in S if x.isdigit()]])
+
+alpha.sort()
+
+if num !=0 :
+   alpha.append(str(num))
+
+print (' '.join(alpha))
